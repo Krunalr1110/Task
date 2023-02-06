@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <style>
+            span{color: red;};
+
+            img{width: 200px; height: 200px;}
+
+        </style>
+    </head>
+    <body>
+        <form name="frm" onsubmit="validation(event)" >
+            
+            <h1> Registration Form  </h1>
+
+            <label for="Name"> Name </label>
+            <input type="text" name="user_name" id="name">
+            <span id="namewar"> </span>  <br><br>
+
+            <label for="Number"> Number </label>
+            <input type="text" name="user_number" id="number">
+            <span id="numwar"> </span> <br><br>
+
+            <label for="Email"> Email </label>
+            <input type="email" name="user_email" id="email">
+            <span id="emlwar"> </span> <br><br>
+
+            <label for="Gender"> Gender </label>
+            <input type="radio" name="user_gender"> Male
+            <input type="radio" name="user_gender"> Female
+            <span id="genwar"> </span> <br><br>
+
+            <label for="City"> City </label>
+            <select name="user_city" id="city">
+                <option value="-1">--Select City--</option>
+                <option value="Ahm">Ahmedabad</option>
+                <option value="brd">Baroda</option>
+                <option value="srt">Surat</option>
+            </select>
+            <span id="ciwar"> </span> <br><br>
+
+            <label for="img"> Image </label>
+            <input type="file" name="user_image" id="image" accept="image/*" onchange="imgpreviw()">
+            <img src="/preview.png" id="preview" style="width: 200px; height: 200px;">
+            <span id="imgwar"> </span> <br><br>
+
+            <label for="pass"> Password </label>
+            <input type="password" name="user_pass" id="pass">
+            <span id="passwar"> </span> <br><br>
+
+            <label for="cpass"> Confirm Password </label>
+            <input type="password" name="user_cpass" id="cpass">
+            <span id="cpasswar"> </span> <br><br>
+
+            <input type="submit" value="Submit">
+
+        </form>
+
+                <script type="text/javascript">
+                    function validation(event){
+                        event.preventDefault();
+                        localStorage.clear();
+
+                        var name = document.frm.user_name.value;
+                        if(name == "" || name.trim() == ""){
+                            document.getElementById("namewar").innerHTML = " * Please Enter Name !! *";
+                        }else if(name.length < 3){
+                            document.getElementById("namewar").innerHTML = " * Name must be min 3 latter !! *";
+                        }else{
+                            localStorage.setItem("user_name",document.getElementById("name").value);
+                            document.getElementById("namewar").innerHTML = "";
+                        }
+
+                        var number = document.frm.user_number.value;
+                        if(number == "" || number.trim() == ""){
+                            document.getElementById("numwar").innerHTML = "* Please Enter Number !! *";
+                        }else if(number.length < 10 ){
+                            document.getElementById("numwar").innerHTML = "* Number must be 10 digit only !! *";
+                        }else if(isNaN(number)){
+                            document.getElementById("numwar").innerHTML = "* Number must be in digit only !! *";
+                        }else {
+                            localStorage.setItem("user_number",document.getElementById("number").value);
+                            document.getElementById("numwar").innerHTML = "";
+                        }
+
+                        var x = document.frm.user_email.value;
+                        var a = x.indexOf("@");
+                        var d = x.lastIndexOf(".");
+                        if(a < 1 || d < a + 2 || d + 2 > x.length){
+                            document.getElementById("emlwar").innerHTML = "* Please Enter Valid Email Address !! * ";
+                        }else{
+                            localStorage.setItem("user_email",document.getElementById("email").value);
+                            document.getElementById("emlwar").innerHTML = "";
+                        }
+
+                       if((document.frm.user_gender[0].checked == false) && (document.frm.user_gender[0].checked == false)){
+                            document.getElementById("genwar").innerHTML = "* Please Select Your Gender !! *";
+                       }else{
+                            document.getElementById("genwar").innerHTML = "";
+                       }
+
+                       if(document.frm.user_city.value == "-1"){
+                            document.getElementById("ciwar").innerHTML = "* Please Select Your City !!* ";
+                       }else {
+                            localStorage.setItem("user_city",document.getElementById("city").value);
+                            document.getElementById("ciwar").innerHTML = "";
+                       }
+                            // console.log("Image = ",document.frm.user_image);
+                            console.log("on load ",document.getElementById("image"));
+                            if(document.getElementById("image").value == ""){
+                                document.getElementById("imgwar").innerHTML = "* Please Upload Your Image !! *";
+                            }else{
+                                localStorage.setItem("user_image",document.getElementById("image").value);
+                                document.getElementById("imgwar").innerHTML = "";
+                            }
+
+                        var pass = document.frm.user_pass.value;
+                        if(pass == "" || pass.trim() == ""){
+                            document.getElementById("passwar").innerHTML = "* Please Enter Password !! *";
+                        }else if(pass.length < 8 ){
+                            document.getElementById("passwar").innerHTML = "* Password must be min 8 charachters only !! * ";
+                        }else{
+                            localStorage.setItem("user_pass",document.getElementById("pass").value);
+                            document.getElementById("passwar").innerHTML = "";
+                        }
+
+                        var cpass = document.frm.user_cpass.value;
+                        var pass = document.frm.user_pass.value;
+                            if(cpass != pass){
+                                document.getElementById("cpasswar").innerHTML = "* Password and Confirm Password must be same !! *";
+                            }else{
+                                document.getElementById("cpasswar").innerHTML = "";
+                            }
+                    }
+
+                    function imgpreviw(){
+                        console.log("after select",document.getElementById("image"));
+                        preview.src = URL.createObjectURL(event.target.files[0]);
+                    }
+
+                </script>
+
+    </body>
+</html>
