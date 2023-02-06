@@ -1,0 +1,50 @@
+<html>
+    <body>
+        <h1> Select Your hobby </h1>
+        <input type="radio" name="hobby" value="reading" id="reading">
+        <label for="reading"> Reading </label>
+        
+        <input type="radio" name="hobby" id="writing" value="writing" >
+        <label for="writing"> Writing </label>
+        
+        <input type="radio" name="hobby" id="indoorgames" value="indoorgames" >
+        <label for="indoorgames"> Indoor Games </label>
+
+        <input type="radio" name="hobby" id="outdoorgames" value="outdoorgames">
+        <label for="outdoorgames"> Outdoor Games </label>
+
+        <h1> Select Your Degree </h1>
+        <input type="radio" name="degree" id="BBA" value="BBA">
+        <label for="BBA"> BBA </label>
+        
+        <input type="radio" name="degree" id="MBA" value="MBA">
+        <label for="MBA"> MBA </label>
+        
+        <input type="radio" name="degree" id="BCA" value="BCA">
+        <label for="BCA"> BCA </label>
+        
+        <input type="radio" name="degree" id="MCA" value="MCA">
+        <label for="MCA"> MCA </label>
+
+        <button onclick="submit()"> Submit </button> <br><br>
+        <p id="ans"> </p>
+    </body>
+
+            <script>
+                function submit(){
+                    var iteam = document.getElementsByTagName("input");
+                    var result = "";
+                    for(i=0;i<iteam.length;i++){
+                        if(iteam[i].type = "radio"){
+                            if(iteam[i].checked){
+                                result += iteam[i].value + " , ";
+                                document.getElementById("ans").innerHTML = result; 
+                            }
+                        }
+                    }
+
+
+                }
+            </script>
+
+</html>
