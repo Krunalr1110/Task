@@ -1,0 +1,35 @@
+<html>
+    <body>
+        <form>
+        City : <select name="city" onchange="othercity(this.value)">
+                <option value="-1">--Select City--</option>
+                <option value="Ahmedabad"> Ahmedabad </option>
+                <option value="Baroda"> Baroda </option>
+                <option value="Surat"> Surat </option>
+                <option value="other"> Other </option>
+                </select>
+                <input type="submit" value="Submit"> <br><br>
+                <input type="text" name="other" id="other" onkeydown="savevalue(this.value)" style="display: none;" placeholder="Enter City Name">
+        </form>
+
+                <script>
+                    function othercity(value){
+                        var a = document.getElementById("other");
+                        if(value == "other"){
+                            a.style.display = "block";
+                        }else{
+                            a.style.display = "none";
+                        }
+                    }
+
+                    function savevalue(aa)
+                    {
+                       // alert(aa);
+
+                        localStorage.setItem("other",aa);
+
+                    }
+                </script>
+
+    </body>
+</html>
