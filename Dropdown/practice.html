@@ -1,0 +1,60 @@
+<html>
+    <body>
+        Show Form <input type="checkbox" name="check" id="check" onclick="check()"> <br><br>
+
+        <div id="txt" style="display: none;">
+            Name <input type="text" > <br><br>
+            Email <input type="email" name="email">
+        </div> <hr>
+
+        Show <input type="radio" name="show" value="show" onclick="radiobu(this)" checked>
+        Hide <input type="radio" name="show" value="hide" onclick="radiobu(this)"> <br><br>
+
+        <div id="txt2" style="display: none;">
+            Name <input type="text"> <br><br>
+            Email <input type="email" name="email">
+        </div>   <hr>
+
+        City <select name="city" id="city" onchange="city(this.value)">
+                <option value="Select">--select--</option>
+                <option value="ahmedabad"> Ahmedanad </option>
+                <option value="Baroda"> Baroda </option>
+                <option value="Surat"> Surat </option>
+                <option value="other"> Other </option>
+        </select>
+        
+        <input type="submit" value="submit"> <br><br>
+        <input type="text" name="other" id="other" style="display: none;" placeholder="Enter City Name">
+
+                <script>
+                    function check(){
+                        var checkbox = document.getElementById("check");
+                        var txt = document.getElementById("txt");
+                        if(checkbox.checked == true){
+                            txt.style.display = "block";
+                        }else {
+                            txt.style.display = "none";
+                        }
+                    }
+
+                    function radiobu(src){
+                        if(src.value == "show"){
+                            document.getElementById("txt2").style.display = "block";
+                        }else{
+                            document.getElementById("txt2").style.display = "none";
+                        }
+                    }
+
+                    function city(value){
+                        var a = document.getElementById("other")
+                        if(value == "other"){
+                            a.style.display = "block";
+                        }else{
+                            a.style.display = "none";
+                        }
+                    }
+
+                </script>
+
+    </body>
+</html>

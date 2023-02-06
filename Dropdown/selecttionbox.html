@@ -1,0 +1,98 @@
+<html>
+    <body>
+        <form>
+        <select name="select" id="select" onchange="user(this.value)">
+            <option value="">--Select--</option>
+            <option value="name"> Name </option>
+            <option value="number"> Number</option>
+            <option value="gender"> Gender </option>
+            <option value="hobby"> Hobby </option>
+            <option value="language"> language </option>
+            <option value="degree"> Degree </option>
+        </select>
+        <input type="submit" value="Submit"><br><br>
+        <input type="text" name="name" id="name" style="display: none;" placeholder="Enter Name"> 
+        <input type="text" name="number" id="number" style="display: none;" placeholder="Enter Number"> 
+        <div id="gender" style="display: none;">
+            <input type="radio" name="gender" checked > Male
+            <input type="radio" name="gender" > Female
+        </div> 
+
+        <div id="hobby" style="display: none;">
+            <input type="checkbox" name="hobby" value="Reading"> Reading
+            <input type="checkbox" name="hobby" value="Dancing"> Dancing
+            <input type="checkbox" name="hobby" value="Singing"> Singing
+        </div>
+
+        <div id="language" style="display: none;">
+            <input type="checkbox" name="language" value="Gujarati"> Gujarati
+            <input type="checkbox" name="language" value="Hindi"> Hindi
+            <input type="checkbox" name="language" value="English"> English
+        </div>
+
+        <div id="degree" style="display: none;">
+            <input type="radio" name="degree" value="BBA">BBA
+            <input type="radio" name="degree" value="MBA">MBA
+            <input type="radio" name="degree" value="BCA">BCA
+            <input type="radio" name="degree" value="MCA">MCA
+            <input type="radio" name="degree" value="other"2>other
+        </div>
+
+        <div id="other">
+            <input type="text" style="display: none;">
+        </div>
+
+        </form>
+        
+    </body>
+    <script>
+        function user(value){
+            if(value == "name"){
+                document.getElementById("name").style.display = "block";
+            }else {
+                document.getElementById("name").style.display = "none";
+            }
+
+            if(value == "number"){
+                document.getElementById("number").style.display = "block";
+            }else{
+                document.getElementById("number").style.display = "none";
+            }
+
+            if(value == "gender"){
+                document.getElementById("gender").style.display = "block";
+            }else{
+                document.getElementById("gender").style.display = "none";
+            } 
+
+            if(value == "hobby"){
+                document.getElementById("hobby").style.display = "block";
+            }else
+            {
+                document.getElementById("hobby").style.display = "none";
+            }
+
+            if(value == "language"){
+                document.getElementById("language").style.display = "block";
+            }else{
+                document.getElementById("language").style.display = "none";
+            }
+
+            if(value == "degree"){
+                document.getElementById("degree").style.display = "block";
+            }else{
+                document.getElementById("degree").style.display = "none";
+            }
+            var a = document.getElementById("other");
+            if(value == "other"){
+                a.style.display = "block";
+            }else{
+                a.style.display = "none";
+            }
+        }
+
+       
+
+
+    </script>
+</html>
