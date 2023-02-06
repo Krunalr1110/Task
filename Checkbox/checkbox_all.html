@@ -1,0 +1,57 @@
+<html>
+    <body>
+        <h1> Color </h1>
+        <p> Please Select your favorite color </p>
+        <input type="checkbox" name="clr" value ="red"> Red <br><br>
+        <input type="checkbox" name="clr" value ="green"> Green <br><br>
+        <input type="checkbox" name="clr" value ="yellow"> Yellow <br><br>
+        <input type="checkbox" name="clr" value ="blue"> Blue <br><br>
+        <input type="checkbox"  onclick="checkuncheck(this)")> Check All <br><br>
+
+        <button onclick="selectall()"> Select All  </button> 
+        <button onclick="deselectall()"> Deselect All  </button> 
+        <button onclick="subclr()"> Submit</button>
+        <p id="ans"> </p>
+
+    </body>
+
+           <script>
+                function selectall(){
+                    var iteam = document.getElementsByName('clr');
+                    for(i=0;i<iteam.length;i++){
+                        if(iteam[i].type == 'checkbox')
+                        iteam[i].checked = true;
+
+                    }
+                }
+                function deselectall(){
+                    var iteam = document.getElementsByName('clr');
+                    for(i=0;i<iteam.length;i++){
+                        if(iteam[i].type == 'checkbox')
+                        iteam[i].checked = false;
+
+                    }
+                }
+
+                function checkuncheck(checkbox){
+                    var iteam = document.getElementsByName('clr');
+                    for(i=0;i<iteam.length;i++){
+                        iteam[i].checked = checkbox.checked;
+                    }
+                }
+
+                function subclr(){
+                    var iteam = document.getElementsByName("clr");
+                    var result = "";
+                    for(i=0;i<iteam.length;i++){
+                        if(iteam[i].checked){
+                            result += iteam[i].value + " , ";
+                        }
+                        document.getElementById("ans").innerHTML = "You have selected " + result;
+                    }
+                }
+                
+
+           </script>
+
+</html>

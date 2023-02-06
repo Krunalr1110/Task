@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <input type="checkbox" name="checkbox" id="check" onclick="myfunction()"> Show Form <br><br>
+        <div id="txt" style="display: none;"> 
+            Name : <input type="text"><br><br>
+            Email : <input type="email" name="email">
+        </div>
+    </body>
+
+    <script>
+        function myfunction(){
+            var checkbox = document.getElementById("check");
+            var txt = document.getElementById("txt");
+            if(checkbox.checked == true){
+                txt.style.display = "block";
+            }else {
+                txt.style.display = "none";
+            }
+        }
+    </script>
+
+</html>
