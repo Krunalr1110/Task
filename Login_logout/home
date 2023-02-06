@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <h1> Welcome to HomePage </h1>
+        <button onclick="remove()"> Logout </button>
+    </body>
+
+    <script>
+        if(localStorage.getItem("email") == null){
+            window.location = "login.html"
+        }
+        function remove(){
+        localStorage.clear();
+        window.location = "login.html"
+        }
+    </script>
+
+</html>
