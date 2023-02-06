@@ -1,0 +1,44 @@
+<html>
+    <body>
+        <h1> Language </h1>
+        <p> Please Select your Favorite language </p>
+        <input type="checkbox" name="lang" id="javascript" value="Javascript">  
+        <label for="javascript"> Javascript </label> <br> <br>
+
+        <input type="checkbox" name="lang" value="Java" id="Java">
+        <label for="Java"> Java  </label> <br> <br>
+
+        <input type="checkbox" name="lang" value="PHP" id="PHP" >  
+        <label for="PHP"> PHP </label> <br> <br>
+
+        <input type="checkbox" name="lang" value="Phyton" id="Phyton"> 
+        <label for="Phyton"> Phyton </label> <br> <br>
+
+        <input type="checkbox" onclick="selectall(this)"> Select All <br><br>
+        
+        <button onclick="sublang()"> Submit </button>
+        <p id="ans"> </p>
+    </body>
+
+            <script>
+                function selectall(checkbox){
+                    var iteam = document.getElementsByName("lang");
+                    for(i=0;i<iteam.length;i++){
+                        iteam[i].checked = checkbox.checked;
+                    }
+                }
+
+                function sublang(){
+                    var iteam = document.getElementsByName("lang");
+                    var result = "";
+                    for(i=0;i<iteam.length;i++){
+                        if(iteam[i].checked){
+                            result += iteam[i].value + " , ";
+                        }
+                        document.getElementById("ans").innerHTML = "You have selected " + result;
+                    }
+                }
+
+            </script>
+
+</html>
