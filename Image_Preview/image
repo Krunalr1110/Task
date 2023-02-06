@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <form>
+        <input type="file" name="user_image" id="image" accept="image/*" onchange="imgpre()">
+        <img src="/preview.png" id="preview" style="width: 200px; height: 200px;">
+        <input type="submit" value="Submit">
+        </form>
+
+                <script type="text/javascript">
+                    function imgpre(){
+                        preview.src = URL.createObjectURL(event.target.files[0]);
+                        localStorage.setItem("user_name",event.target.files[0].name);
+                    }
+                </script>
+    </body>
+</html>
