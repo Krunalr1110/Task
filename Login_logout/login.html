@@ -1,0 +1,32 @@
+<html>
+    <body>
+        <h1> Login Page </h1>
+        
+        <label for="Email"> Email </label>
+        <input type="email" name="email" id="email"> <br><br>
+
+        <label for="Password"> Password </label>
+        <input type="password" name="pass" id="pass"><br><br>
+
+        <button onclick="get()"> Login </button> <br><br>
+        <a href="signup.html"> Signup </a>
+    </body>
+
+    <script>
+        
+        function get(){
+            var a = localStorage.getItem("email");
+            var email = document.getElementById("email").value;
+
+            var b = localStorage.getItem("pass");
+            var password = document.getElementById("pass").value;
+
+            if(email == a && password == b){
+                alert("You Have successfully log in");
+                window.location = "home.html";
+            }else{
+                alert("Email Address and Password Doesn't Matched !! ")
+            }
+        }
+    </script>
+</html>
