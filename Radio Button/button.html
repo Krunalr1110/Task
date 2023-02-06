@@ -1,0 +1,70 @@
+<html>
+    <body>
+        <h1> Color </h1>
+        <p> Please Select your favorite color </p>
+        <input type="checkbox" name="clr" id="red" value="red">
+        <label for="red"> Red </label> <br>
+        
+        <input type="checkbox" name="clr" id="green" value="green">
+        <label for="green"> Green </label> <br>
+        
+        <input type="checkbox" name="clr" id="yellow" value="yellow">
+        <label for="yellow"> Yellow </label> <br>
+        
+        <input type="checkbox" name="clr" id="black" value="black">
+        <label for="black"> Black </label> <br>
+
+        <input type="checkbox" onclick="selectall(this)">
+        <label for="selectall"> Select All </label> <br><br>
+
+        <!-- <button onclick="subclr()"> Submit  </button> -->
+        <p id="ans"> </p>
+        <hr>
+        <br><br>
+
+        <h1> Language </h1>
+        <p> Please Select your language </p>
+
+        <input type="radio" name="lang" value="PHP"> PHP <br>
+        <input type="radio" name="lang" value="Phyton"> Phyton <br>
+        <input type="radio" name="lang" value="Java"> Java <br>
+        <input type="radio" name="lang" value="React JS"> React JS <br> <br>
+        <button onclick="suball()"> Submit  </button> <br>
+        <p id="rst"> </p>
+    
+    </body>
+            <script>
+                function selectall(checkbox){
+                    var iteam = document.getElementsByName("clr");
+                    for(i=0;i<iteam.length;i++){
+                        iteam[i].checked = checkbox.checked;
+                    }
+                }
+
+                function suball(){
+                    var iteam = document.getElementsByName("clr");
+                    var lang = document.getElementsByTagName("input");
+                    var ans = "";
+                    var result = "";
+                    for(i=0;i<iteam.length;i++){
+                        if(iteam[i].checked){
+                            ans += iteam[i].value + " , ";
+                        }
+                        document.getElementById("ans").innerHTML = ans;
+                    }
+
+                    for(j=0;j<lang.length;j++){
+                        if(lang[i].type = "radio"){
+                            if(lang[i].checked){
+                                result += lang[i].value;
+                                document.getElementById("rst").innerHTML = result;
+                            }
+                        }
+                    }
+                }
+
+                
+
+
+            </script>
+</html>

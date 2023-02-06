@@ -1,0 +1,24 @@
+<html>
+<body>
+    <div>
+        <input type="radio" value="show" class="show" name="show" onchange="handleChange(this)" checked> Show
+        <input type="radio" value="hide" class="hide" name="show" onchange="handleChange(this)"> Hide
+        <div id="text2">
+            Name : <input type="text"><br><br>
+            Email : <input type="email" name="email">
+        </div>
+    </div>
+</body>
+<script>
+    function handleChange(src) {
+        console.log(src.value)
+        if (src.value == "show") {
+            document.getElementById("text2").style.display = "block";
+        } else {
+            document.getElementById("text2").style.display = "none";
+        }
+
+    }
+</script>
+
+</html>

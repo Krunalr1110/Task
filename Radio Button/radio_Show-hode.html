@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <div>
+            <input type="radio" name="show" value="show" onchange="handler(this)" checked> show
+            <input type="radio" name="show" value="hide" onchange="handler(this)"> hide
+            <div id="txt">
+                Name : <input type="text" name="name"> <br><br>
+                Email : <input type="email" name="email">
+            </div>
+        </div>
+        <script>
+            function handler(src){
+                if(src.value == "show"){
+                    document.getElementById("txt").style.display = "block";
+                }else {
+                    document.getElementById("txt").style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>
